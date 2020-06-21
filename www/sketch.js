@@ -1,33 +1,46 @@
-// This is a JavaScript file
-  var x,y;
-  var speed;
-  var a;
+var y = 600;
+var ex,espeed,ey;
+var score=0;
 
-function setup() { 
+function setup(){
   createCanvas(windowWidth,windowHeight);
-  x=width;
-  y=height/2.0;
-  speed=2.0;
-  a=90;
+  ex = (random(width));
+  espeed = (random(1,6));
+  ey = -10;
+  
+}
+function draw(){
+  background(255);
+  noStroke();
+  ell();
+  scorep();
+  
+}
+
+function ell(){
+   fill(255,10,255);
+   rect(mouseX,y,60,20,5);
+   if(dist(mouseX,y,ex,ey)<30){
+    ey =-10;
+    ex = (random(width));  //追加しました
+    espeed = (random(1,6)); //追加しました
+    score+=10;
   }
+   else if(ey-20 > height){
+    ey =-10;
+    ex = (random(width));  //追加しました
+    espeed = (random(1,6)); //追加しました
+   }
+  fill(10,255,10);
+  ellipse(ex,ey,20,20);
+  ey += espeed;
 
-function draw() { 
-  background(204);
-  if (mouseIsPressed) { 
-    fill(0);
-    } else { 
-      fill(255);
-    } 
+}
 
-    ellipse(mouseX, mouseY, 30, 30);
-    
+function scorep(){
+  textSize(24);
+  fill(200);
+  text("score:"+score,10,20);
 
-    x=x-speed;
-    if(x<-width){
-      x=width;
-      y=random(width-a);
-    }
-    translate(x,y);
-    rect(0,0,a,a);
 }
 
