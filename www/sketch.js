@@ -82,7 +82,7 @@ fill(20);
 
 textSize(50);
 
-text(nf(lmtm, 2), 100, 50);
+text(nf(lmtm, 2), 200, 60);
 
 if(lmtm<=0 || score<0){
   background(255,255,0);
@@ -91,7 +91,7 @@ if(lmtm<=0 || score<0){
 }
 else if(score>40){
   background(0,255,127);
-  text("GAME CLEAR!!",45,100);
+  text("GAME CLEAR!!",20,100);
   noLoop();
 }
 }
